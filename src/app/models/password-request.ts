@@ -1,12 +1,8 @@
-export type PasswordReq = {
-  symbols: "alpha" | "alphanumeric" | "alphanumericspecial",
-  capitalize: boolean,
+export type PassphraseReq = {
   length: number,
   auth: string,
 };
-
-export type PassphraseReq = {
+export type PasswordReq = PassphraseReq & {
+  symbols: "alpha" | "alphanumeric" | "alphanumericspecial",
   capitalize: boolean,
-  length: number,
-  auth: string,
 };
