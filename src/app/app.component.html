@@ -1,10 +1,15 @@
 <mat-toolbar color="primary">
   <div class="menu">
-    <mat-toolbar-row class="button-row">
+    <mat-toolbar-row>
+      <span class="spacer"></span>
       <a mat-button disabled><img src="../assets/LogoBN.png"/></a>
+      <!-- todo enlace a github -->
+      <a mat-button disableRipple><h1>PASSTGEN WEB</h1></a>
+      <span class="spacer"></span>
       <button mat-raised-button routerLink="/register">Register</button>
       <button mat-raised-button routerLink="/passgen/password">Generate Password</button>
       <button mat-raised-button routerLink="/passgen/passphrase">Generate Passphrase</button>
+      <span class="spacer"></span>
     </mat-toolbar-row>
   </div>
 </mat-toolbar>

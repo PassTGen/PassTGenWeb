@@ -3,18 +3,10 @@
   justify-content: center;
   align-items: center;
 }
-.menu{
-  display: table;
-}
-.button-row {
-  display: table-cell;
-}
-.button-row .mat-button-base {
-  margin: 8px 8px 8px 0;
+.spacer {
+  flex: auto;
 }
 
-img {
-  width: 150px;
-  height: auto;
-  display: table-cell;
+.mat-button-base {
+  margin: 8px 8px 8px 0;
 }
