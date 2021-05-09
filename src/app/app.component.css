@@ -1,7 +1,10 @@
-.center {
+.card {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+}
+.center {
+  width: fit-content;
 }
 .spacer {
   flex: auto;
