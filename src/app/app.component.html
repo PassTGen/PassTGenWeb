@@ -1,18 +1,14 @@
 <mat-toolbar color="primary">
-  <div class="menu">
-    <mat-toolbar-row>
-      <span class="spacer"></span>
-      <a mat-button disabled><img src="../assets/LogoBN.png"/></a>
-      <!-- todo enlace a github -->
-      <a mat-button disableRipple><h1>PASSTGEN WEB</h1></a>
-      <span class="spacer"></span>
-      <button mat-raised-button routerLink="/register">Register</button>
-      <button mat-raised-button routerLink="/passgen/password">Generate Password</button>
-      <button mat-raised-button routerLink="/passgen/passphrase">Generate Passphrase</button>
-      <span class="spacer"></span>
-    </mat-toolbar-row>
-  </div>
-</mat-toolbar>
+   <span class="spacer"></span>
+   <a mat-button disabled><img src="../assets/LogoBN.png"/></a>
+   <!-- todo enlace a github -->
+   <a class="flex-item" mat-button disableRipple><h1>PASSTGEN WEB</h1></a>
+   <span class="spacer"></span>
+   <button class="center" mat-raised-button routerLink="/register">Register</button>
+   <button class="center" mat-raised-button routerLink="/passgen/password">Generate Password</button>
+   <button class="center" mat-raised-button routerLink="/passgen/passphrase">Generate Passphrase</button>
+   <span class="spacer"></span>
+ </mat-toolbar>
 <div class="card">
 <mat-card class="center">
 <router-outlet></router-outlet>

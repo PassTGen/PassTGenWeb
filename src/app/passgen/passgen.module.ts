@@ -6,7 +6,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatCommonModule } from '@angular/material/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatSliderModule } from "@angular/material/slider";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PassgenRoutingModule } from './passgen-routing.module';
 import { PasswordComponent } from './password/password.component';
 import { PassphraseComponent } from './passphrase/passphrase.component';
@@ -18,15 +20,19 @@ import { BrowserModule } from '@angular/platform-browser';
     PassphraseComponent
   ],
   imports: [
-
+    CommonModule,
     PassgenRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     MatCommonModule,
     MatCardModule,
     MatFormFieldModule,
     MatButtonModule,
     MatToolbarModule,
-    MatInputModule
-  ]
+    MatInputModule,
+    MatCheckboxModule,
+    MatSliderModule
+  ],
+  exports: [MatFormFieldModule, MatInputModule]
 })
 export class PassgenModule { }

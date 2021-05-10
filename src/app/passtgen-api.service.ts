@@ -13,14 +13,14 @@ export class PasstgenApiService {
   ) { }
 
   postUser(user: User) {
-    return this.http.post<User>(`localhost/register?email=${user.email}`, '');
+    return this.http.post<User>(`api/register/register?email=${user.email}`, '');
   }
   getPassword(passwordreq: PasswordReq) {
     const { auth, capitalize, symbols, length } = passwordreq;
-    return this.http.get<string>(`localhost/passgen/password?auth=${auth}&capitalize=${capitalize}&symbols=${symbols}&length=${length}`);
+    return this.http.get<string>(`api/passgen/password?auth=${auth}&capitalize=${capitalize}&symbols=${symbols}&length=${length}`);
   }
   getPassphrase(passphrasereq: PassphraseReq) {
     const { auth, length } = passphrasereq;
-    return this.http.get<string>(`localhost/passgen/passphrase?auth=${auth}&length=${length}`);
+    return this.http.get<string>(`api/passgen/passphrase?auth=${auth}&length=${length}`);
   }
 }

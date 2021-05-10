@@ -6,10 +6,15 @@
 .center {
   width: fit-content;
 }
-.spacer {
-  flex: auto;
-}
-
 .mat-button-base {
   margin: 8px 8px 8px 0;
+}
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
 }
