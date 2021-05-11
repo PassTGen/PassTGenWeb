@@ -21,18 +21,8 @@
       <div class="full-width">
         <mat-slider thumbLabel [displayWith]="formatLabel" min="4" max="20" step="1" value="10" [formControl]="length"></mat-slider>
       </div>
-      <div class="full-width">
-        <mat-checkbox  class="full-width" [formControl]="capitalize">Capitalize</mat-checkbox>
-      </div>
-      <div class="full-width">
-        <!-- <mat-select placeholder="Placeholder" [(ngModel)]="selectedValue" name="item">
-          <mat-option *ngFor="let item of items" [value]="item.value">
-            {{item.viewValue}}
-          </mat-option>
-        </mat-select> -->
-      </div>
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>Ok</button>
+    <button mat-button>Generate Passphrase</button>
   </mat-card-actions>

@@ -14,7 +14,6 @@ export class PassphraseComponent implements OnInit {
     Validators.required,
     Validators.email,
   ]);
-  capitalize = new FormControl('');
   length = new FormControl('');
   matcher = new MyErrorStateMatcher();
   constructor() { }
