@@ -3,8 +3,7 @@
 </mat-card-header>
 <mat-card-content>
 Register your email to use it as a token.
-</mat-card-content>
-<form class="form">
+<form class="form" (ngSubmit)="onSignUp()">
   <mat-form-field class="full-width">
     <mat-label>Email</mat-label>
     <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
@@ -17,7 +16,9 @@ Register your email to use it as a token.
       Email is <strong>required</strong>
     </mat-error>
   </mat-form-field>
+  <button mat-button type="submit" [disabled]="!emailFormControl.valid">Sign up</button>
 </form>
-<mat-card-actions>
-  <button mat-raised-button>Sign up</button>
-</mat-card-actions>
+</mat-card-content>
+<mat-card *ngIf="message">
+{{message}}
+</mat-card>
