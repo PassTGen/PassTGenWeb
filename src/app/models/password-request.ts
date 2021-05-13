@@ -3,6 +3,8 @@ export type PassphraseReq = {
   auth: string,
 };
 export type PasswordReq = PassphraseReq & {
-  symbols: "alpha" | "alphanumeric" | "alphanumericspecial",
+  symbols: "Alpha" | "AlphaNumeric" | "AlphaNumericSpecial",
   capitalize: boolean,
 };
+
+export const symbols = ["Alpha", "AlphaNumeric", "AlphaNumericSpecial"];

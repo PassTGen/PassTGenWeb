@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCommonModule } from '@angular/material/core';
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatSliderModule } from "@angular/material/slider";
+import { MatSelectModule } from "@angular/material/select";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PassgenRoutingModule } from './passgen-routing.module';
 import { PasswordComponent } from './password/password.component';
@@ -30,8 +31,9 @@ import { BrowserModule } from '@angular/platform-browser';
     MatButtonModule,
     MatToolbarModule,
     MatInputModule,
+    MatSelectModule,
     MatCheckboxModule,
-    MatSliderModule
+    MatSliderModule,
   ],
   exports: [MatFormFieldModule, MatInputModule]
 })

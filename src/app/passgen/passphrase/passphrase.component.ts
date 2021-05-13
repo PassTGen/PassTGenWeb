@@ -1,7 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { PassphraseReq } from 'src/app/models/password-request';
 import { MyErrorStateMatcher } from 'src/app/my-error.matcher';
+import { PasstgenApiService } from 'src/app/passtgen-api.service';
 
 @Component({
   selector: 'app-passphrase',
@@ -10,13 +13,19 @@ import { MyErrorStateMatcher } from 'src/app/my-error.matcher';
 })
 export class PassphraseComponent implements OnInit {
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-  length = new FormControl('');
+  requestForm = this.fb.group({
+    email: ['', [
+      Validators.required,
+      Validators.email,
+    ]],
+    length: ['4']
+  });
   matcher = new MyErrorStateMatcher();
-  constructor() { }
+  message?: string;
+  constructor(
+    private passtgenService: PasstgenApiService,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit(): void { }
   formatLabel(value: number) {
@@ -25,5 +34,16 @@ export class PassphraseComponent implements OnInit {
     }
 
     return value;
+  }
+
+  onSubmit() {
+    const request: PassphraseReq = this.requestForm.value;
+    this.passtgenService.getPassphrase(request).subscribe(
+      (passphrase: string) => {
+        this.message = `passphrase: ${passphrase}`;
+      },
+      (err: HttpErrorResponse) => {
+        this.message = `There has been some kind of error creating the user: ${err.message}`;
+      });
   }
 }

@@ -17,10 +17,10 @@ export class PasstgenApiService {
   }
   getPassword(passwordreq: PasswordReq) {
     const { auth, capitalize, symbols, length } = passwordreq;
-    return this.http.get<string>(`/api/passgen/password?auth=${auth}&capitalize=${capitalize}&symbols=${symbols}&length=${length}`);
+    return this.http.get<string>(`/api/passgen/password?auth=${btoa(auth)}&capitalize=${capitalize}&symbols=${symbols}&length=${length}`);
   }
   getPassphrase(passphrasereq: PassphraseReq) {
     const { auth, length } = passphrasereq;
-    return this.http.get<string>(`/api/passgen/passphrase?auth=${auth}&length=${length}`);
+    return this.http.get<string>(`/api/passgen/passphrase?auth=${btoa(auth)}&length=${length}`);
   }
 }
