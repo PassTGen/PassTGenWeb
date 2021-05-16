@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { PasswordReq, symbols } from 'src/app/models/password-request';
-import { MyErrorStateMatcher } from 'src/app/my-error.matcher';
+import { MyErrorStateMatcher } from 'src/app/email.error-state-matcher';
 import { PasstgenApiService } from 'src/app/passtgen-api.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { PasstgenApiService } from 'src/app/passtgen-api.service';
 export class PasswordComponent implements OnInit {
 
   requestForm = this.fb.group({
-    email: ['', [
+    auth: ['', [
       Validators.required,
       Validators.email,
     ]],
@@ -41,12 +41,13 @@ export class PasswordComponent implements OnInit {
 
   onSubmit() {
     const request: PasswordReq = this.requestForm.value;
+    this.message = 'Loading...';
     this.passtgenService.getPassword(request).subscribe(
-      (password: string) => {
-        this.message = `password: ${password}`;
+      (password) => {
+        this.message = password;
       },
       (err: HttpErrorResponse) => {
-        this.message = `There has been some kind of error creating the user: ${err.message}`;
+        this.message = `There has been some kind of error creating password: ${err.message}`;
       });
   }
 }

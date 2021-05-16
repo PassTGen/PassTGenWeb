@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { PassphraseReq } from 'src/app/models/password-request';
-import { MyErrorStateMatcher } from 'src/app/my-error.matcher';
+import { MyErrorStateMatcher } from 'src/app/email.error-state-matcher';
 import { PasstgenApiService } from 'src/app/passtgen-api.service';
 
 @Component({
@@ -14,7 +14,7 @@ import { PasstgenApiService } from 'src/app/passtgen-api.service';
 export class PassphraseComponent implements OnInit {
 
   requestForm = this.fb.group({
-    email: ['', [
+    auth: ['', [
       Validators.required,
       Validators.email,
     ]],
@@ -39,11 +39,11 @@ export class PassphraseComponent implements OnInit {
   onSubmit() {
     const request: PassphraseReq = this.requestForm.value;
     this.passtgenService.getPassphrase(request).subscribe(
-      (passphrase: string) => {
-        this.message = `passphrase: ${passphrase}`;
+      (passphrase) => {
+        this.message = passphrase;
       },
       (err: HttpErrorResponse) => {
-        this.message = `There has been some kind of error creating the user: ${err.message}`;
+        this.message = `There has been some kind of error creating passphrase: ${err.message}`;
       });
   }
 }

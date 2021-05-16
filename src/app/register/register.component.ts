@@ -2,7 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { User } from '../models/user';
-import { MyErrorStateMatcher } from '../my-error.matcher';
+import { MyErrorStateMatcher } from '../email.error-state-matcher';
 import { PasstgenApiService } from '../passtgen-api.service';
 
 @Component({
