@@ -28,13 +28,6 @@ export class PassphraseComponent implements OnInit {
   ) { }
 
   ngOnInit(): void { }
-  formatLabel(value: number) {
-    if (value >= 1000) {
-      return Math.round(value / 1000) + 'k';
-    }
-
-    return value;
-  }
 
   onSubmit() {
     const request: PassphraseReq = this.requestForm.value;
