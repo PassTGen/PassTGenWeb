@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { PasswordReq, symbols } from 'src/app/models/password-request';
+import { PasswordRequest, PasswordResponse, symbols } from 'src/app/models/password';
 import { MyErrorStateMatcher } from 'src/app/email.error-state-matcher';
 import { PasstgenApiService } from 'src/app/passtgen-api.service';
 
@@ -32,11 +32,11 @@ export class PasswordComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit() {
-    const request: PasswordReq = this.requestForm.value;
+    const request: PasswordRequest = this.requestForm.value;
     this.message = 'Loading...';
     this.passtgenService.getPassword(request).subscribe(
-      (password) => {
-        this.message = password;
+      (res: PasswordResponse) => {
+        this.message = res.password;
       },
       (err: HttpErrorResponse) => {
         this.message = `There has been some kind of error creating password: ${err.message}`;

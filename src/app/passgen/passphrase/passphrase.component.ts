@@ -2,8 +2,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { PassphraseReq } from 'src/app/models/password-request';
 import { MyErrorStateMatcher } from 'src/app/email.error-state-matcher';
+import { PassphraseReq, PassphraseResponse } from 'src/app/models/passphrase';
 import { PasstgenApiService } from 'src/app/passtgen-api.service';
 
 @Component({
@@ -32,8 +32,8 @@ export class PassphraseComponent implements OnInit {
   onSubmit() {
     const request: PassphraseReq = this.requestForm.value;
     this.passtgenService.getPassphrase(request).subscribe(
-      (passphrase) => {
-        this.message = passphrase;
+      (passphrase: PassphraseResponse) => {
+        this.message = passphrase.passphrase;
       },
       (err: HttpErrorResponse) => {
         this.message = `There has been some kind of error creating passphrase: ${err.message}`;
